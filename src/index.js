@@ -1,6 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { applyMiddleware, createStore } from 'redux';
+import { Provider } from 'react-redux';
+import logger from 'redux-logger';
+import { Router, Route, browserHistory } from 'react-router';
+import reducers from './reducers';
+import Home from './components/home/Home';
 import './index.css';
-import App from './App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const store = createStore(reducers,
+    applyMiddleware(logger));
+
+ReactDOM.render(
+    <Provider store={store}>
+        <Router history={browserHistory}>
+            <Route path='/' exact component={Home}/>
+        </Router>
+    </Provider>, document.getElementById('root'));
