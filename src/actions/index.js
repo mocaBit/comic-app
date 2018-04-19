@@ -3,6 +3,7 @@ import { SET_CHARACTER,
          SET_SEARCH,
          SET_FAVORITES,
          ADD_FAVORITES,
+         ADD_RANDOM_FAVORITES,
          DELETE_FAVORITES,
          DELETE_ALL_FAVORITES } from '../constants';
 
@@ -22,6 +23,12 @@ export function setFavorites(favorites) {
     return {
         type: SET_FAVORITES,
         favorites
+    }
+}
+export function addRandomFavorite(characters) {
+    return {
+        type: ADD_RANDOM_FAVORITES,
+        characters
     }
 }
 export function getCharacter(character) {

@@ -1,4 +1,4 @@
-import { setCharacter, setSearch } from './index';
+import { setCharacter, setSearch, addRandomFavorite } from './index';
 
 describe('>>>A C T I O N --- Test calculatorActions',()=>{
     it('+++ actionCreator setSearch', () => {
@@ -11,5 +11,11 @@ describe('>>>A C T I O N --- Test calculatorActions',()=>{
         const characters = [];
         const action = setCharacter(characters);
         expect(action).toEqual({type:'SET_CHARACTER',  characters});
+    });
+
+    it('+++ actionCreator addRandomFavorite', () => {
+        const characters = [];
+        const action = addRandomFavorite(characters);
+        expect(action).toEqual({type:'ADD_RANDOM_FAVORITES',  characters});
     });
 });

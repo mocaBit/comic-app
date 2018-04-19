@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { deleteFavorites, setFavorites, deleteAllFavorites } from '../../actions';
-import { getStorage } from '../../helpers/LocalStorage';
+import { getStorage, deleteStorage } from '../../helpers/LocalStorage';
 
 class Favorite extends Component {
 
@@ -16,6 +16,7 @@ class Favorite extends Component {
 
     removeAllFavorite() {
         this.props.deleteAllFavorites();
+        deleteStorage('favorites');
     }
 
     render() {

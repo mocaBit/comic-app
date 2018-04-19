@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import ReactLoading from 'react-loading';
+import { addRandomFavorite } from '../../../actions';
+import { persistStorage} from '../../../helpers/LocalStorage';
 import './CharacterList.css';
 
 export class CharacterList extends Component {
@@ -35,6 +37,16 @@ export class CharacterList extends Component {
                         : <h1 className="text-center" style={{color:'#a7a7a7'}}><strong>No results, use the search field!</strong></h1>
                     }
                 </div>
+                    {
+                        this.props.characters.length > 0 
+                            ? <button className="btn btn-warning brn-block randomFavorite"
+                                onClick={() => {
+                                    this.props.addRandomFavorite(this.props.characters);
+                                    }}
+                                >Random Favorites
+                              </button>
+                            : <div/>
+                    }
             </div>
         )
     }
@@ -48,4 +60,4 @@ function mapStoreToProps(state){
     }
 }
 
-export default connect(mapStoreToProps, null)(CharacterList);
+export default connect(mapStoreToProps, {addRandomFavorite})(CharacterList);

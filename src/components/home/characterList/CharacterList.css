@@ -53,3 +53,9 @@
   align-items: center;
   justify-content: center;
 }
+.randomFavorite{
+  position: fixed;
+  bottom: 40px;
+  left: 0px;
+  width: 100%;
+}
