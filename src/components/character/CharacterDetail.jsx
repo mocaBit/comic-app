@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import CharacterItem from './characterItem/CharacterItem';
+import FavoriteCount from '../shared/favoriteCount/FavoriteCount';
 
 class CharacterDetail extends Component {
     render() {    
@@ -14,6 +15,7 @@ class CharacterDetail extends Component {
                     </Link>
                 </div>
                 <CharacterItem characterId={Number.parseInt(this.props.params.id)}/>
+                <FavoriteCount />
             </div>
         )
     }

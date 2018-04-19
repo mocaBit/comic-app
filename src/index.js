@@ -8,6 +8,7 @@ import reducers from './reducers';
 import Home from './components/home/Home';
 import NotFound from './components/shared/notFound/NotFound';
 import CharacterDetail from './components/character/CharacterDetail';
+import Favorite from './components/favorite/Favorite';
 import './index.css';
 
 const store = createStore(reducers,
@@ -18,6 +19,7 @@ ReactDOM.render(
         <Router history={browserHistory}>
             <Route path='/' exact component={Home}/>
             <Route path='/character/:id' component={CharacterDetail}/>
+            <Route path='/favorite' component={Favorite}/>
             <Route path='**' component={NotFound}/>
         </Router>
     </Provider>, document.getElementById('root'));

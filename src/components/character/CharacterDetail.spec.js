@@ -8,10 +8,10 @@ describe('>>>D E T A I L --- Render COMPONENT',()=>{
     let wrapper;
 
     beforeEach(()=>{
-        wrapper = shallow(<CharacterDetail/>);    
+        wrapper = shallow(<CharacterDetail params={{id:1}}/>);  
     })
 
-    /*it('+++ render comeback button', () => {
-        expect(wrapper.find('a').exists()).toEqual(true);
-     }); */
+    *it('+++ render comeback button', () => {
+        expect(wrapper.find('.comeback').exists()).toEqual(true);
+     }); 
 });

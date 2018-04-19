@@ -1,6 +1,3 @@
-import { shallow, mount } from 'enzyme';
-import renderer from 'react-test-renderer';
-
 import characterReducers from './reducer_character';
 
 describe('>>>R E D U C E R --- Test characterReducers',()=>{
