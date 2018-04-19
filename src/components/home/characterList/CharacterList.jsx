@@ -5,9 +5,6 @@ import ReactLoading from 'react-loading';
 import './CharacterList.css';
 
 export class CharacterList extends Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         return(
             <div>                
