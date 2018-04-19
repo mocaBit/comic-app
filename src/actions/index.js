@@ -1,4 +1,5 @@
 import { SET_CHARACTER,
+         GET_CHARACTER,
          SET_SEARCH,
          SET_FAVORITES,
          ADD_FAVORITES,
@@ -17,11 +18,18 @@ export function setSearch(search) {
         search
     }
 }  
-export function setFavorites() {
+export function setFavorites(favorites) {
     return {
-        type: SET_FAVORITES
+        type: SET_FAVORITES,
+        favorites
     }
 }
+export function getCharacter(character) {
+    return {
+        type: GET_CHARACTER,
+        character
+    }
+} 
 export function addFavorites(favorite) {
     return {
         type: ADD_FAVORITES,

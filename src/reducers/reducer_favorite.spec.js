@@ -1,6 +1,7 @@
 import favoriteReducers  from './reducer_favorite';
 
 describe('>>>R E D U C E R --- Test favoriteReducers',()=>{
+
     it('+++ reducer for ADD_FAVORITES', () => {
         let state = [];
         const favorite = {name: 'comic#1', resourceURI: 'http://comic.com/1234'};

@@ -2,13 +2,20 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addFavorites, deleteFavorites } from '../../../actions';
 import NotFound from '../../shared/notFound/NotFound';
+import { persistStorage } from '../../../helpers/LocalStorage';
 
 class CharacterItem extends Component {
 
     addOrRemoveFavorite(comic){
-        this.isFavorite(comic.resourceURI)
-            ? this.props.deleteFavorites(comic.resourceURI)
-            : this.props.addFavorites(comic);
+        if(this.isFavorite(comic.resourceURI)){
+            this.props.deleteFavorites(comic.resourceURI)
+        }else{
+            this.props.addFavorites(comic);
+        }
+    }
+
+    componentDidUpdate() {
+        persistStorage('favorites', this.props.favorites);
     }
 
     isFavorite(resourceUri) {

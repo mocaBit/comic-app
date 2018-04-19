@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import md5  from 'md5';
 import { connect } from 'react-redux';
-import { setSearch, setCharacter } from '../../../actions';
+import { setSearch, setCharacter, getCharacter } from '../../../actions';
 import './Search.css';
 
 export class Search extends Component {
@@ -14,6 +14,7 @@ export class Search extends Component {
     }
 
     search(query) {
+        
         if(query.length > 0){
             //ACTION: [SET_SEARCH : true]
             this.props.setSearch({isSearching: true, query});
@@ -31,7 +32,6 @@ export class Search extends Component {
                 .then(response => {
                     //ACTION: [SET_CHARACTER : json ]
                     this.props.setCharacter(response.data.results);
-                    console.log('result:', response.data.results);
                     //ACTION: [SET_SEARCH : false]
                     this.setState({isSearching: false});
                     this.props.setSearch(this.state); 
@@ -67,4 +67,4 @@ function mapStoreToProps(state) {
     }
 }
 
-export default connect(mapStoreToProps, { setSearch, setCharacter })(Search);
+export default connect(mapStoreToProps, { setSearch, setCharacter, getCharacter })(Search);

@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { deleteFavorites, setFavorites, deleteAllFavorites } from '../../actions';
+import { getStorage } from '../../helpers/LocalStorage';
 
 class Favorite extends Component {
 
     componentDidMount() {        
-        this.props.setFavorites();
+        this.props.setFavorites(getStorage('favorites') || []);
     }
 
     removeFavorite(resourceURI){

@@ -11,6 +11,9 @@ const removeById = (state = [], resourceUri) => {
 export default (state = [], action) => {
     let favorites;
     switch(action.type) {
+        case SET_FAVORITES:
+            favorites = [...action.favorites];
+            return favorites;
         case ADD_FAVORITES:
             favorites = [...state, action.favorite];
             return favorites;
